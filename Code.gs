@@ -1,4 +1,6 @@
-/*https://developers.google.com/apps-script/guides/services/external*/
+//https://developers.google.com/apps-script/guides/services/external
+//https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app
+//https://github.com/googlesamples/apps-script-oauth2
 
 //on twitter gif are videos
 function add_image_to_folder(name, image_url, comment, folder)
