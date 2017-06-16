@@ -29,7 +29,6 @@ function url_fill(base_url, params)
 }
 
 function run(count, max_id, user) {
-
   var service = getService();
   if (service.hasAccess()) {
     var params = {count: count,
@@ -49,6 +48,8 @@ function run(count, max_id, user) {
 
 function is_extended(dir, tweet, url)
 {
+  //each tweet will be saved in a folder named by the tweet creator user name
+  //each images will be named username + id + time of creation
   var image = url;
   var name = "@" + tweet.user.screen_name;
   var sup_name = " - " + tweet.id + " - " + tweet.created_at;
@@ -65,6 +66,7 @@ function is_extended(dir, tweet, url)
   }
 }
 
+//check if their is no media, one thing or multiples medias
 function pars_result(result, dir)
 {
   var cpt = 0;
@@ -100,6 +102,7 @@ function get_media_url(tweet)
   return (tweet.extended_entities.media);
 }
 
+//function to add on trigger (each minutes if you want) to get new tweets
 function add_new_fav_tweet()
 {
   var dir = DriveApp.getFolderById('');//save folder ID
@@ -116,6 +119,7 @@ function add_new_fav_tweet()
   }
 }
 
+//function to run the first time, re-run it until you get all your old tweets saved
 function main() {
   add_new_fav_tweet();
   return (true);
